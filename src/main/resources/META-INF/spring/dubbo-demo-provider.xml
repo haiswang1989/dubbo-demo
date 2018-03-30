@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       
+    <!-- 配置应用信息,不管是服务的提供者还是消费者 -->       
+    <dubbo:application name="demo-provider"/>
+    
+    <!-- 用于配置连接注册中心相关信息 -->
+    <dubbo:registry address="multicast://224.5.6.7:1234"/>
+    
+    <!-- 用于配置提供服务的协议信息,协议由提供方指定,消费方被动接受 -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+    
+    <!-- 用于暴露一个服务,定义服务的元数据,一个服务可以用多个协议暴露,一个服务也可以注册到多个注册中心 -->
+    <dubbo:service interface="com.whs.rpc.dubbo.demo.service.intf.IHelloWorldService" ref="helloworldService"/>
+    
+    <!-- 服务的实现类 -->
+    <bean id="helloworldService" class="com.whs.rpc.dubbo.demo.service.impl.HelloWorldServiceImpl"/>
+</beans>
