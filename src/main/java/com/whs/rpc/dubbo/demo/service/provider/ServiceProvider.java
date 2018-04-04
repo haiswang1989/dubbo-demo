@@ -4,6 +4,12 @@ import java.io.IOException;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+/**
+ * 
+ * <p>Description:</p>
+ * @author hansen.wang
+ * @date 2018年4月4日 上午11:17:28
+ */
 public class ServiceProvider {
 
     public static void main(String[] args) throws IOException {
@@ -11,8 +17,9 @@ public class ServiceProvider {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] {"META-INF/spring/dubbo-demo-provider.xml"});
         context.start();
-        // press any key to exit
+        
         System.in.read();
+        
         context.close();
     }
 

@@ -6,6 +6,7 @@
 	
 	<properties>
         <dubbo.version>2.6.1</dubbo.version>
+        <curator.version>2.12.0</curator.version>
 	</properties>
 	
 	<dependencies>
@@ -14,5 +15,11 @@
 	        <artifactId>dubbo</artifactId>
 	        <version>${dubbo.version}</version>
 	    </dependency>
+	    
+	    <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
 	</dependencies>
 </project>
